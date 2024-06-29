@@ -21,6 +21,8 @@ group: # 分组
 <!-- 可以通过code加载示例代码，dumi会帮我们做解析 -->
 
 <code src="./demo/base.tsx">基础用法</code>
+<code src="./demo/control.tsx">可控用法</code>
+<code src="./demo/unControl.tsx">不可控用法</code>
 
 ## API
 

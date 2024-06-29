@@ -1,3 +1,4 @@
+import { useControllableValue } from 'ahooks';
 import cs from 'classnames';
 import dayjs, { Dayjs } from 'dayjs';
 import React, { CSSProperties, ReactNode, useState } from 'react';
@@ -21,10 +22,12 @@ export interface CalendarProps {
 }
 
 function Calendar(props: CalendarProps) {
-  const { style, className, locale, onChange, value } = props;
+  const { style, className, locale, value, defaultValue } = props;
 
-  const [curMonth, setCurMonth] = useState<Dayjs>(value);
-  const [curValue, setCurValue] = useState<Dayjs>(value);
+  const [curMonth, setCurMonth] = useState<Dayjs>(
+    value || defaultValue || dayjs(),
+  );
+  const [curValue, setCurValue] = useControllableValue<Dayjs>(props);
 
   const classNames = cs('calendar', className);
 
@@ -32,7 +35,6 @@ function Calendar(props: CalendarProps) {
   function selectHandler(date: Dayjs) {
     setCurValue(date);
     setCurMonth(date);
-    onChange?.(date);
   }
 
   // 上一个月
@@ -50,7 +52,6 @@ function Calendar(props: CalendarProps) {
     const date = dayjs();
     setCurMonth(date);
     setCurValue(date);
-    onChange?.(date);
   }
 
   return (
@@ -64,7 +65,7 @@ function Calendar(props: CalendarProps) {
         ></Header>
         <MonthCalendar
           {...props}
-          value={curValue}
+          value={curValue || dayjs()}
           curMonth={curMonth}
           selectHandler={selectHandler}
         ></MonthCalendar>

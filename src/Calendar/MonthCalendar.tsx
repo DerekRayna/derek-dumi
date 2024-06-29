@@ -68,7 +68,6 @@ const MonthCalendar = (props: MonthCalendarProps) => {
   const {
     value,
     curMonth = dayjs(),
-    defaultValue = dayjs(),
     selectHandler,
     dateRender,
     dateInnerContent,
@@ -110,7 +109,7 @@ const MonthCalendar = (props: MonthCalendarProps) => {
     return daysInfo;
   }
 
-  const allDays = getAllDays(curMonth || defaultValue);
+  const allDays = getAllDays(curMonth);
 
   return (
     <div className="calendar-month">
