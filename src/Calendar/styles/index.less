@@ -1,31 +1,98 @@
 .calendar {
-  border: 1px solid #aaa;
-  padding: 10px;
-  width: 300px;
-  height: 250px;
+  width: 100%;
+}
 
-  .header {
+.calendar-header {
+  &-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: 28px;
+    line-height: 28px;
   }
 
-  .days {
+  &-value {
+    font-size: 20px;
+  }
+
+  &-btn {
+    background: #eee;
+    cursor: pointer;
+    border: 0;
+    padding: 0 15px;
+    line-height: 28px;
+
+    &:hover {
+      background: #ccc;
+    }
+  }
+
+  &-icon {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    user-select: none;
+    cursor: pointer;
+    margin-right: 12px;
+
+    &:not(:first-child) {
+      margin: 0 12px;
+    }
+
+    &:hover {
+      background: #ccc;
+    }
+  }
+}
+
+.calendar-month {
+  &-week-list {
     display: flex;
-    flex-wrap: wrap;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+
+    &-item {
+      padding: 20px 16px;
+      text-align: left;
+      color: #7d7d7f;
+      flex: 1;
+    }
   }
-}
 
-.empty,
-.day {
-  width: calc(100% / 7);
-  text-align: center;
-  line-height: 30px;
-}
+  &-body {
+    &-row {
+      height: 100px;
+      display: flex;
+    }
 
-.day:hover,
-.selected {
-  background-color: #ccc;
-  cursor: pointer;
+    &-cell {
+      flex: 1;
+      border: 1px solid #eee;
+      color: #ccc;
+      overflow: hidden;
+
+      &-current {
+        color: #000;
+      }
+
+      &-date {
+        padding: 10px;
+
+        &-selected {
+          background: blue;
+          width: 28px;
+          height: 28px;
+          line-height: 28px;
+          text-align: center;
+          color: #fff;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

@@ -1,19 +1,31 @@
+import dayjs, { Dayjs } from 'dayjs';
 import { Calendar } from 'derek-dumi';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 export default () => {
-  const calendarRef = useRef(null);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  // const calendarRef = useRef(null);
+  const [selectedDate, setSelectedDate] = useState(dayjs());
+
   return (
     <div>
-      <div>当前选中日期{selectedDate.toLocaleDateString()}</div>
       <Calendar
-        ref={calendarRef}
+        // ref={calendarRef}
+        className={'aaa'}
+        // style={{ background: 'yellow' }}
         value={selectedDate}
-        onChange={(date: Date) => {
-          console.log(date);
+        // locale='en-US'
+        onChange={(date: Dayjs): void => {
           setSelectedDate(date);
         }}
+        // dateInnerContent={(value) => {
+        //   return (
+        //     <div>
+        //       <p style={{ background: 'yellowgreen', height: '30px' }}>
+        //         {value.format('YYYY/MM/DD')}
+        //       </p>
+        //     </div>
+        //   );
+        // }}
       ></Calendar>
     </div>
   );
