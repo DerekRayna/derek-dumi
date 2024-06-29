@@ -22,7 +22,7 @@ export interface CalendarProps {
 }
 
 function Calendar(props: CalendarProps) {
-  const { style, className, locale, value, defaultValue } = props;
+  const { value, defaultValue, style, className, locale } = props;
 
   const [curMonth, setCurMonth] = useState<Dayjs>(
     value || defaultValue || dayjs(),

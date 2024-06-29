@@ -28,8 +28,12 @@ group: # 分组
 
 <!-- 会生成api表格 -->
 
-| 属性     | 类型             | 默认值     | 必填  | 说明                 |
-| -------- | ---------------- | ---------- | ----- | -------------------- |
-| value    | Date()           | new Date() | false | 受控组件值           |
-| onChange | (Date()) => void | undefined  | false | 日期改变时的回调函数 |
-| default  | Date()           | new Date() | false | 非受控组件默认值     |
+| 属性             | 类型                               | 默认值      | 必填  | 说明                 |
+| ---------------- | ---------------------------------- | ----------- | ----- | -------------------- |
+| value            | Dayjs                              | new dayjs() | false | 受控组件值           |
+| defaultValue     | Dayjs                              | new dayjs() | false | 非受控组件默认值     |
+| locale           | en-US / zh-CN                      | zh-CN       | false | 国际化               |
+| dateRender       | (currentDate: Dayjs) => ReactNode; | undefined   | false | 非受控组件默认值     |
+| className        | string / string[]                  | undefined   | false | 非受控组件默认值     |
+| dateInnerContent | (currentDate: Dayjs) => ReactNode; | undefined   | false | 非受控组件默认值     |
+| onChange         | (Dayjs()) => void                  | undefined   | false | 日期改变时的回调函数 |
