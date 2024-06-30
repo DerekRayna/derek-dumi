@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Icon, IconProps } from '.';
+import { Icon, IconProps } from './index';
 
 interface CreateIconOptions {
   content: React.ReactNode;
